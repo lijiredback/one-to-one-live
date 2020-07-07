@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime communication with WebRTC</title>
+</head>
+<body>
+    <h1>Realtime communication with WebRTC</h1>
+    <!-- 
+        video 标签: 可以播放多媒体文件，也可以播放采集到的数据
+
+        autoplay: 当页面加载时，可以自动播放视频
+        playsinline: 在 HTML5 页面内播放视频，而不是用系统播放器播放视频
+     -->
+    <video autoplay playsinline></video>
+    <script src="./index.js"></script>
+</body>
+<script>
+    /*
+        1. getUserMedia 方法
+
+        在浏览器中访问音视频设备，使用 getUserMedia API，返回一个 Promise
+        let promise = navigator.mediaDevices.getUserMedia(constraints)
+
+        如果成功: 通过 Promise 可以得到 MediaStream 对象(可以从音视频设备中，获得音视频数据了)
+        如果失败: 如用户拒绝访问媒体设备或访问的设备不可用，返回的 Promise 会得到 PermissionDeniedError 或 NotFoundError 等错误对象
+        
+        2. MediaStreamConstraints 参数
+
+        getUserMedia 方法有一个输入参数 constraints，类型为 MediaStreamConstraints
+        它可以指定 MediaStream 中包含哪些类型的媒体轨(音频轨、视频轨)，可以为这些媒体轨设置一些限制
+        const mediaStreamConstraints = { 
+            video: {
+                frameRate: { min: 20 },             帧率最小 20 帧每秒
+                width: { min: 640, ideal: 1280 },   宽度最小 640，理想宽度 1280
+                height: { min: 360, ideal: 720 },   高度最小 360，理想高度 720
+                aspectRatio: 16/9                   宽高比 16:9
+            },
+            audio: {
+                echoCancellation: true,             开启回音消除
+                noiseSuppression: true,             降噪
+                autoGainControl: true               自动增益
+            }
+        }
+    
+    */
+    // let promise = navigator.mediaDevices.getUserMedia()
+</script>
+</html>
