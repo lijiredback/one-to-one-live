@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/lijiredback/one-to-one-live#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "serve-index": "^1.9.1"
   }
 }
